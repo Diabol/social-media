@@ -1,0 +1,27 @@
+<html>
+  <head>
+	<title>Instagram to Twitter preview</title>
+    <script src="jquery-1.12.1.min.js"></script>
+    <script>
+      function countChar(val) {
+		var text = val.value;
+		// Instagram only allows two consecutive newlines.
+		text = text.replace(/[\n\r]{2,}/g, '\n\n');
+		var len = text.length;
+        if (len >= 115) {
+		  $('#preview').text(text.substring(0, 115) + "...")
+        } else {
+          $('#preview').text(text.value)
+        }
+        $('#charNum').text(len);
+      };
+    </script>
+  </head>
+
+  <body>
+    <textarea id="field" onkeyup="countChar(this)" rows="10" cols="100"></textarea>
+    <div id="charNum"></div>
+	<textarea id="preview" rows="10" cols="100" readonly="true"></textarea>
+  </body>
+
+</html>
