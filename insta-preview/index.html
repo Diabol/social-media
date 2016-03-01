@@ -1,6 +1,8 @@
+ <!DOCTYPE html> 
 <html>
   <head>
 	<title>Instagram to Twitter preview</title>
+	<link href="bootstrap.css" rel="stylesheet">
     <script src="jquery-1.12.1.min.js"></script>
     <script>
       function countChar(val) {
@@ -11,16 +13,38 @@
         if (len >= 115) {
 		  $('#preview').text(text.substring(0, 115) + "...")
         } else {
-          $('#preview').text(text.value)
+          $('#preview').text(text)
         }
         $('#charNum').text(len);
       };
     </script>
+	<style type="text/css">
+	   body {
+	      padding-top: 20px;
+		  margin-left: 20px;
+          margin-right: 20px;
+	      padding-bottom: 40px;
+	   }
+	   p {
+	     line-height: 1.2em;
+	     margin: 0.2em 0;
+	   }
+	   img {
+		   padding-bottom: 10px;
+	   }
+	   div {
+	       padding-bottom: 10px;
+	   }
+	</style>
   </head>
 
   <body>
+	<img src="diabol.jpg" alt="Diabol AB"/>
+    <p>Instagram post text:</p>
     <textarea id="field" onkeyup="countChar(this)" rows="10" cols="100"></textarea>
-    <div id="charNum"></div>
+	<p>Character count:</p>
+    <div id="charNum">0</div>
+	<p>Twitter preview:</p>
 	<textarea id="preview" rows="10" cols="100" readonly="true"></textarea>
   </body>
 
